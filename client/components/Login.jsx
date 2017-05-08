@@ -1,4 +1,6 @@
 import React from 'react';
+// import $ from 'jquery';
+import {compareHash, createHash, hashPassword, createSalt} from '../../server/hashUtils.js'
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 class Login extends React.Component {
@@ -16,20 +18,28 @@ class Login extends React.Component {
   handleChangeUsername(event) {
     console.log(event.target.value);
     this.setState({
-      username: event.target.value, 
+      username: event.target.value 
       // password: event.target.value
     })
   }
   handleChangePassword(event) {
     console.log(event.target.value)
     this.setState({
-      password: event.target.value, 
+      password: event.target.value 
       // password: event.target.value
     })
   }
   handleSubmit(event) {
     console.log('a password/username was submitted: ' + this.state.username)
     event.preventDefault();
+    // let salt = createSalt();
+    // let password = hashPassword(this.state.password, salt);
+    // console.log(password);
+    // console.log('salt', salt) 
+    // $.get('/getComedians', {username:this.state.username})
+    // .done(function(data) {
+    //   console.log(data);
+    // })
   }
   render () {
     return (

@@ -14,3 +14,6 @@ module.exports.compareHash = (attempted, stored, salt) => {
 	return stored === this.createHash(attempted, salt);
 }
 
+module.exports.createSalt = () => {
+	return crypto.randomBytes(32).toString('hex');
+};
